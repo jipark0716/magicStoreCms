@@ -36,6 +36,10 @@ class ItemContoller extends Controller
     }
     public function image(Request $request, $path)
     {
-        return \Response::make(\Storage::get('item/'.$path), 200)->header("Content-Type", "image/png");
+        try {
+            return \Response::make(\Storage::get('item/'.$path), 200)->header("Content-Type", "image/png");
+        } catch (\Throwable $th) {
+            abort(404);
+        }
     }
 }
