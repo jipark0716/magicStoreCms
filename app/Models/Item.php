@@ -30,6 +30,7 @@ class Item extends Model
             base64_decode($base64)
         );
     }
+
     public function getImageAttribute($image)
     {
         return url($image);
