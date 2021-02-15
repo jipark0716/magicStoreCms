@@ -34,6 +34,10 @@ class ItemContoller extends Controller
         $item->save();
         return $item;
     }
+    public function list(Request $request)
+    {
+        return Item::all();
+    }
     public function image(Request $request, $path)
     {
         try {
