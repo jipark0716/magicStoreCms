@@ -1,0 +1,39 @@
+import React from 'react'
+import TextField from '@material-ui/core/TextField'
+import {Button} from '@material-ui/core'
+
+class Form extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.onSubmit = props.onSubmit
+        
+        this.state = {
+            name : '',
+            table_id : '',
+            level : '',
+        }
+    }
+    _handleChange(col, e) {
+        let obj = {}
+        obj[col] = e.target.value
+        this.setState(obj)
+    }
+    _handleSubmit(event) {
+        console.log(this.state)
+        this.onSubmit()
+        event.preventDefault()
+    }
+    render () {
+        return (
+            <form onSubmit={this._handleSubmit.bind(this)}>
+                <div><TextField label="이름" defaultValue={this.state.name} onChange={this._handleChange.bind(this, 'name')} /></div>
+                <div><TextField label="table_id" defaultValue={this.state.table_id} onChange={this._handleChange.bind(this, 'table_id')} /></div>
+                <div><TextField label="level" defaultValue={this.state.level} onChange={this._handleChange.bind(this, 'level')} /></div>
+                <Button type="submit">추가</Button>
+            </form>
+        )
+    }
+}
+
+export default Form
