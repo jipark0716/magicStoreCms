@@ -1,13 +1,14 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import {Button} from '@material-ui/core'
+import axios from 'axios';
 
 class Form extends React.Component {
     constructor(props) {
         super(props)
 
         this.onSubmit = props.onSubmit
-        
+
         this.state = {
             name : '',
             table_id : '',
@@ -20,8 +21,14 @@ class Form extends React.Component {
         this.setState(obj)
     }
     _handleSubmit(event) {
-        console.log(this.state)
-        this.onSubmit()
+        axios.put('/api/item', this.state)
+            .then(response => {
+                console.log(response)
+                this.onSubmit()
+            })
+            .catch(response => {
+                console.log(response)
+            })
         event.preventDefault()
     }
     render () {
