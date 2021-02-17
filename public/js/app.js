@@ -26029,7 +26029,7 @@ function save(event, params) {
   if (params.value == event.currentTarget.value) return;
   params.row[params.field] = event.currentTarget.value;
   axios.put('/api/inventory', {
-    account: params.getValue('id'),
+    account: '',
     item: params.getValue('id'),
     amount: event.currentTarget.value
   }).then(function (response) {

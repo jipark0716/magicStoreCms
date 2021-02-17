@@ -11,3 +11,6 @@ Route::get('items', [ItemContoller::class, 'list']);
 
 Route::put('table', [CreatingTableController::class, 'create']);
 Route::get('tables', [CreatingTableController::class, 'list']);
+
+// Route::post('api/inventory', [InventoryContoller::class, 'update']);
+// Route::get('api/inventory', [InventoryContoller::class, 'list']);
