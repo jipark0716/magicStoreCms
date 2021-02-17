@@ -9,6 +9,7 @@ class Inventory extends Model
 {
     use HasFactory;
 
+    public $table = 'account_inventorys';
     public $timestamps = false;
     public $fillable = ['account_id', 'item_id', 'amount'];
 }

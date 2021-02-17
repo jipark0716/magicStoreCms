@@ -25916,7 +25916,7 @@ var Form = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       name: '',
       table_id: '',
-      level: ''
+      player_level: ''
     };
     return _this;
   }
@@ -25951,7 +25951,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
             label: "\uC774\uB984",
             defaultValue: this.state.name,
-            onChange: this._handleChange.bind(this, 'name')
+            onChange: this._handleChange.bind(this, 'name'),
+            autoFocus: true
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -25961,9 +25962,9 @@ var Form = /*#__PURE__*/function (_React$Component) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
-            label: "level",
+            label: "player_level",
             defaultValue: this.state.level,
-            onChange: this._handleChange.bind(this, 'level')
+            onChange: this._handleChange.bind(this, 'player_level')
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
           type: "submit",
@@ -25989,116 +25990,178 @@ var Form = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ DataTable)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/data-grid */ "./node_modules/@material-ui/data-grid/dist/index-esm.js");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
 
-var columns = [{
-  field: 'id',
-  headerName: 'ID',
-  width: 70
-}, {
-  field: 'firstName',
-  headerName: 'First name',
-  width: 130
-}, {
-  field: 'lastName',
-  headerName: 'Last name',
-  width: 130
-}, {
-  field: 'age',
-  headerName: 'Full name',
-  width: 160,
-  renderCell: function renderCell(params) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
-      defaultValue: params.getValue('age'),
-      onBlur: function onBlur(event) {
-        save(event, params);
-      }
-    });
+
+
+var Table = /*#__PURE__*/function (_React$Component) {
+  _inherits(Table, _React$Component);
+
+  var _super = _createSuper(Table);
+
+  function Table(props) {
+    var _this;
+
+    _classCallCheck(this, Table);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      columns: [],
+      rows: []
+    };
+
+    _this.renderItem();
+
+    _this.renderColumn();
+
+    return _this;
   }
-}];
 
-function save(event, params) {
-  if (params.value == event.currentTarget.value) return;
-  params.row[params.field] = event.currentTarget.value;
-  axios.put('/api/inventory', {
-    account: '',
-    item: params.getValue('id'),
-    amount: event.currentTarget.value
-  }).then(function (response) {
-    console.log(response);
-  })["catch"](function (response) {
-    console.log(response);
-  });
-}
+  _createClass(Table, [{
+    key: "renderTextField",
+    value: function renderTextField(filedName) {
+      var _this2 = this;
 
-var rows = [{
-  id: 1,
-  lastName: 'Snow',
-  firstName: 'Jon',
-  age: 35
-}, {
-  id: 2,
-  lastName: 'Lannister',
-  firstName: 'Cersei',
-  age: 42
-}, {
-  id: 3,
-  lastName: 'Lannister',
-  firstName: 'Jaime',
-  age: 45
-}, {
-  id: 4,
-  lastName: 'Stark',
-  firstName: 'Arya',
-  age: 16
-}, {
-  id: 5,
-  lastName: 'Targaryen',
-  firstName: 'Daenerys',
-  age: null
-}, {
-  id: 6,
-  lastName: 'Melisandre',
-  firstName: null,
-  age: 150
-}, {
-  id: 7,
-  lastName: 'Clifford',
-  firstName: 'Ferrara',
-  age: 44
-}, {
-  id: 8,
-  lastName: 'Frances',
-  firstName: 'Rossini',
-  age: 36
-}, {
-  id: 9,
-  lastName: 'Roxie',
-  firstName: 'Harvey',
-  age: 65
-}];
-function DataTable() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    style: {
-      height: '100%',
-      width: '100%'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
-      rows: rows,
-      columns: columns,
-      autoPageSize: true,
-      hideFooter: true
-    })
-  });
-}
+      return function (params) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
+          type: 'number',
+          defaultValue: params.getValue(filedName),
+          onBlur: function onBlur(event) {
+            _this2.save(event, params);
+          }
+        });
+      };
+    }
+  }, {
+    key: "save",
+    value: function save(event, params) {
+      if (params.value == event.currentTarget.value) return;
+      params.row[params.field] = event.currentTarget.value;
+
+      var _params$field$split = params.field.split('_'),
+          _params$field$split2 = _slicedToArray(_params$field$split, 2),
+          a = _params$field$split2[0],
+          accountId = _params$field$split2[1];
+
+      axios.post("/api/inventory/".concat(accountId), {
+        item_id: params.getValue('id'),
+        amount: event.currentTarget.value
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    }
+  }, {
+    key: "renderItem",
+    value: function renderItem() {
+      var _this3 = this;
+
+      axios.get('/api/inventorys').then(function (response) {
+        _this3.setState({
+          rows: response.data
+        });
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    }
+  }, {
+    key: "renderColumn",
+    value: function renderColumn() {
+      var _this4 = this;
+
+      axios.get('/api/accounts').then(function (response) {
+        var columns = [{
+          field: 'player_level',
+          headerName: 'Level',
+          width: 100
+        }, {
+          field: 'name',
+          headerName: 'Name',
+          width: 200
+        }];
+        response.data.forEach(function (element) {
+          columns.push({
+            field: "account_".concat(element.id),
+            headerName: element.name,
+            width: 150,
+            valueGetter: function valueGetter(params) {
+              return params.row.inventory[element.id] || 0;
+            },
+            renderCell: _this4.renderTextField("account_".concat(element.id))
+          });
+        });
+
+        _this4.setState({
+          columns: columns
+        });
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        style: {
+          height: '100%',
+          width: '100%'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
+          rows: this.state.rows,
+          columns: this.state.columns,
+          autoPageSize: true,
+          hideFooter: true
+        })
+      });
+    }
+  }]);
+
+  return Table;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
 
 /***/ }),
 

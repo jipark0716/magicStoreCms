@@ -12,7 +12,7 @@ class Form extends React.Component {
         this.state = {
             name : '',
             table_id : '',
-            level : '',
+            player_level : '',
         }
     }
     _handleChange(col, e) {
@@ -34,9 +34,9 @@ class Form extends React.Component {
     render () {
         return (
             <form onSubmit={this._handleSubmit.bind(this)}>
-                <div><TextField label="이름" defaultValue={this.state.name} onChange={this._handleChange.bind(this, 'name')} /></div>
+                <div><TextField label="이름" defaultValue={this.state.name} onChange={this._handleChange.bind(this, 'name')} autoFocus /></div>
                 <div><TextField label="table_id" defaultValue={this.state.table_id} onChange={this._handleChange.bind(this, 'table_id')} /></div>
-                <div><TextField label="level" defaultValue={this.state.level} onChange={this._handleChange.bind(this, 'level')} /></div>
+                <div><TextField label="player_level" defaultValue={this.state.level} onChange={this._handleChange.bind(this, 'player_level')} /></div>
                 <Button type="submit">추가</Button>
             </form>
         )

@@ -35,4 +35,9 @@ class Item extends Model
     {
         return url($image);
     }
+
+    public function inventory()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }

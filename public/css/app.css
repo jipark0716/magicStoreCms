@@ -4,6 +4,7 @@
   position: fixed;
   right: 10px;
   bottom: 10px;
+  z-index: 999;
 }
 
 html, body, #root {
