@@ -11,7 +11,7 @@ class Form extends React.Component {
 
         this.state = {
             name : '',
-            table_id : '',
+            table_id : '11',
             player_level : '',
         }
     }
@@ -23,8 +23,7 @@ class Form extends React.Component {
     _handleSubmit(event) {
         axios.put('/api/item', this.state)
             .then(response => {
-                console.log(response)
-                this.onSubmit()
+                this.onSubmit(response.data)
             })
             .catch(response => {
                 console.log(response)

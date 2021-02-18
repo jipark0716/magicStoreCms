@@ -25712,24 +25712,21 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_AddButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AddButton */ "./resources/js/components/AddButton.js");
-/* harmony import */ var _components_ItemTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ItemTable */ "./resources/js/components/ItemTable.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_ItemTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ItemTable */ "./resources/js/components/ItemTable.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
 
-
-
 if (document.getElementById('root')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  react_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     style: {
       height: '100%',
       width: '100%'
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_AddButton__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_ItemTable__WEBPACK_IMPORTED_MODULE_2__.default, {})]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_ItemTable__WEBPACK_IMPORTED_MODULE_1__.default, {})
   }), document.getElementById('root'));
 }
 
@@ -25788,7 +25785,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ AlertDialog)
+/* harmony export */   "default": () => (/* binding */ Button)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _material_ui_icons_AddCircle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/AddCircle */ "./node_modules/@material-ui/icons/AddCircle.js");
@@ -25816,7 +25813,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function AlertDialog() {
+function Button(props) {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(false),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       open = _React$useState2[0],
@@ -25828,6 +25825,11 @@ function AlertDialog() {
 
   var handleClose = function handleClose() {
     setOpen(false);
+  };
+
+  var onSubmit = function onSubmit(item) {
+    props.onCreate(item);
+    handleClose();
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -25846,7 +25848,7 @@ function AlertDialog() {
         children: "\uC544\uC774\uD15C \uCD94\uAC00"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ItemForm__WEBPACK_IMPORTED_MODULE_1__.default, {
-          onSubmit: handleClose
+          onSubmit: onSubmit
         })
       })]
     })]
@@ -25915,7 +25917,7 @@ var Form = /*#__PURE__*/function (_React$Component) {
     _this.onSubmit = props.onSubmit;
     _this.state = {
       name: '',
-      table_id: '',
+      table_id: '11',
       player_level: ''
     };
     return _this;
@@ -25934,9 +25936,7 @@ var Form = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().put('/api/item', this.state).then(function (response) {
-        console.log(response);
-
-        _this2.onSubmit();
+        _this2.onSubmit(response.data);
       })["catch"](function (response) {
         console.log(response);
       });
@@ -25994,9 +25994,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/data-grid */ "./node_modules/@material-ui/data-grid/dist/index-esm.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _AddButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddButton */ "./resources/js/components/AddButton.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -26035,6 +26044,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var Table = /*#__PURE__*/function (_React$Component) {
   _inherits(Table, _React$Component);
 
@@ -26064,7 +26075,7 @@ var Table = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (params) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__.default, {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__.default, {
           type: 'number',
           defaultValue: params.getValue(filedName),
           onBlur: function onBlur(event) {
@@ -26077,13 +26088,13 @@ var Table = /*#__PURE__*/function (_React$Component) {
     key: "save",
     value: function save(event, params) {
       if (params.value == event.currentTarget.value) return;
-      params.row[params.field] = event.currentTarget.value;
 
       var _params$field$split = params.field.split('_'),
           _params$field$split2 = _slicedToArray(_params$field$split, 2),
           a = _params$field$split2[0],
           accountId = _params$field$split2[1];
 
+      params.row.inventory[accountId] = event.currentTarget.value;
       axios.post("/api/inventory/".concat(accountId), {
         item_id: params.getValue('id'),
         amount: event.currentTarget.value
@@ -26127,6 +26138,7 @@ var Table = /*#__PURE__*/function (_React$Component) {
             headerName: element.name,
             width: 150,
             valueGetter: function valueGetter(params) {
+              if (!('inventory' in params.row)) return 0;
               return params.row.inventory[element.id] || 0;
             },
             renderCell: _this4.renderTextField("account_".concat(element.id))
@@ -26141,19 +26153,35 @@ var Table = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "addItem",
+    value: function addItem(self, item) {
+      var rows = _toConsumableArray(this.state.rows);
+
+      rows.push(item);
+      this.setState({
+        rows: rows
+      });
+      console.log(this.state);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      var _this5 = this;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         style: {
           height: '100%',
           width: '100%'
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+          onCreate: function onCreate(item) {
+            _this5.addItem(_this5, item);
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_data_grid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
           rows: this.state.rows,
           columns: this.state.columns,
-          autoPageSize: true,
-          hideFooter: true
-        })
+          autoPageSize: true
+        })]
       });
     }
   }]);

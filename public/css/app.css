@@ -3,7 +3,7 @@
 #add-item-button {
   position: fixed;
   right: 10px;
-  bottom: 10px;
+  bottom: 50px;
   z-index: 999;
 }
 
